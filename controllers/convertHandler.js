@@ -13,7 +13,7 @@ function ConvertHandler() {
   this.getUnit = function(input) {
     const err = 'invalid unit';
     const supportedUnits = ["gal", "l", "mi", "km", "lbs", "kg"];
-    const unit = input.toLowerCase().split(/[0-9]+/gi)[1];
+    const unit = supportedUnits.includes(input.toLowerCase()) ? input.toLowerCase() : input.toLowerCase().split(/[^a-z]+/gi)[1];
     const res = supportedUnits.includes(unit) ? unit : err;
     return res === 'l' ? res.toUpperCase() : res;
   };
@@ -51,7 +51,7 @@ function ConvertHandler() {
       "lbs": initNum * 0.453592,
       "kg": initNum / 0.453592
     };
-    return refUnits[initUnit.toLowerCase()];
+    return parseFloat(refUnits[initUnit.toLowerCase()].toFixed(5));
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {

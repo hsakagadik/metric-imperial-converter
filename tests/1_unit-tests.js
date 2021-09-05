@@ -77,7 +77,7 @@ suite('Unit Tests', function(){
     });
 
     test('convertHandler should correctly convert L to gal.', function(){
-        assert.strictEqual(convertHandler.convert(1,'L'), 0.26417217685798894, `converter should return the valid L to gal convertion`);
+        assert.strictEqual(convertHandler.convert(1,'L'), 0.26417, `converter should return the valid L to gal convertion`);
     });
 
     test('convertHandler should correctly convert mi to km.', function(){
@@ -85,15 +85,15 @@ suite('Unit Tests', function(){
     });
 
     test('convertHandler should correctly convert km to mi.', function(){
-        assert.strictEqual(convertHandler.convert(1,'km'), 0.6213727366498067, `converter should return the valid km to mi convertion`);
+        assert.strictEqual(convertHandler.convert(1,'km'), 0.62137, `converter should return the valid km to mi convertion`);
     });
 
     test('convertHandler should correctly convert lbs to kg.', function(){
-        assert.strictEqual(convertHandler.convert(1,'lbs'), 0.453592, `converter should return the valid lbs to kg convertion`);
+        assert.strictEqual(convertHandler.convert(1,'lbs'), 0.45359, `converter should return the valid lbs to kg convertion`);
     });
 
     test('convertHandler should correctly convert kg to lbs.', function(){
-        assert.strictEqual(convertHandler.convert(1,'kg'), 2.2046244201837775, `converter should return the valid kg to lbs convertion`);
+        assert.strictEqual(convertHandler.convert(1,'kg'), 2.20462, `converter should return the valid kg to lbs convertion`);
     });
 
 });
