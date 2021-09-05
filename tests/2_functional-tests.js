@@ -7,7 +7,7 @@ chai.use(chaiHttp);
 
 suite('Functional Tests', function() {
     test('Convert a valid input such as 10L: GET request to /api/convert', function(done){
-        const response = {"initNum":10,"initUnit":"L","returnNum":2.64172,"returnUnit":"gal","string":"10 L converts to 2.64172 gal"};
+        const response = {"initNum":10,"initUnit":"L","returnNum":2.64172,"returnUnit":"gal","string":"10 liters converts to 2.64172 gallon"};
         chai
         .request(server)
         .get("/api/convert?input=10L")
@@ -52,7 +52,7 @@ suite('Functional Tests', function() {
     });
 
     test('Convert with no number such as kg: GET request to /api/convert', function(done){
-        const response = {"initNum":1,"initUnit":"kg","returnNum":2.20462,"returnUnit":"lbs","string":"1 kg converts to 2.20462 lbs"};
+        const response = {"initNum":1,"initUnit":"kg","returnNum":2.20462,"returnUnit":"lbs","string":"1 kilograms converts to 2.20462 pounds"};
         chai
         .request(server)
         .get("/api/convert?input=kg")

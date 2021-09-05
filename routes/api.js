@@ -25,7 +25,7 @@ module.exports = function (app) {
         "initUnit": initUnit,
         "returnNum": returnNum,
         "returnUnit": returnUnit,
-        "string": convertHandler.getString(initNum, initUnit, returnNum, returnUnit)
+        "string": convertHandler.getString(initNum, convertHandler.spellOutUnit(initUnit), returnNum, convertHandler.spellOutUnit(returnUnit))
       };
     }
     res.send(result);
