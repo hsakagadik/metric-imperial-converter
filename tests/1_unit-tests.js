@@ -11,15 +11,15 @@ suite('Unit Tests', function(){
 
     test('convertHandler should correctly read a decimal number input', function(){
         let num = convertHandler.getNum('5km');
-        assert(num % 1 === 0, 'getNum should retrieve a decimal number');
+        assert.isTrue(num % 1 === 0, 'getNum should retrieve a decimal number');
     });
 
     test('convertHandler should correctly read a fractional input', function(){
-        assert.isNumber(convertHandler.getNum('3/4gal'), 'getNum should retrieve a fractional number');
+        assert.strictEqual(convertHandler.getNum('3/4gal'), 0.75, 'getNum should retrieve a fractional number');
     });
 
     test('convertHandler should correctly read a fractional input with a decimal', function(){
-        assert.isNumber(convertHandler.getNum('5.4/3lbs'), 'getNum should retrieve a fractional number');
+        assert.strictEqual(convertHandler.getNum('5.4/3lbs'), 1.8, 'getNum should retrieve a fractional number');
     });
 
     test('convertHandler should correctly return an error on a double-fraction', function(){

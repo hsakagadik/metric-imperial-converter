@@ -2,10 +2,15 @@
 
 const expect = require('chai').expect;
 const ConvertHandler = require('../controllers/convertHandler.js');
+const cors = require('cors');
 
 module.exports = function (app) {
   
   let convertHandler = new ConvertHandler();
+
+  app.use(cors({
+      origin: '*'
+  }));
 
   app.route('/api/convert').get((req, res) => {
     let result;
@@ -25,7 +30,7 @@ module.exports = function (app) {
         "initUnit": initUnit,
         "returnNum": returnNum,
         "returnUnit": returnUnit,
-        "string": convertHandler.getString(initNum, convertHandler.spellOutUnit(initUnit), returnNum, convertHandler.spellOutUnit(returnUnit))
+       "string": convertHandler.getString(initNum, convertHandler.spellOutUnit(initUnit), returnNum, convertHandler.spellOutUnit(returnUnit))
       };
     }
     res.send(result);

@@ -4,7 +4,7 @@ function ConvertHandler() {
     const err = 'invalid number';
     const num = input.toLowerCase().split(/[a-z]/gi)[0]; 
     const hasToEval = num.match(/\//gi);
-    if (hasToEval && hasToEval.length === 1){ return parseFloat(eval(num)); }
+    if (hasToEval && hasToEval.length === 1){ return eval(num); }
     if (isNaN(num)){ return err; }
     if (num === '') { return 1; }
     return parseFloat(num);
@@ -43,13 +43,14 @@ function ConvertHandler() {
   };
   
   this.convert = function(initNum, initUnit) {
+    const num = initNum;
     const refUnits = {
-      "gal": initNum * 3.78541,
-      "l": initNum / 3.78541,
-      "mi": initNum * 1.60934,
-      "km": initNum / 1.60934,
-      "lbs": initNum * 0.453592,
-      "kg": initNum / 0.453592
+      "gal": num * 3.78541,
+      "l": num / 3.78541,
+      "mi": num * 1.60934,
+      "km": num / 1.60934,
+      "lbs": num * 0.453592,
+      "kg": num / 0.453592
     };
     return parseFloat(refUnits[initUnit.toLowerCase()].toFixed(5));
   };
